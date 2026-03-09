@@ -108,7 +108,7 @@ const openSection = document.getElementById("open-section")
 const closedSection = document.getElementById("close-section")
 const stat=document.getElementById("stat")
 const switchTab = (value) => {
-   currentTab="all"
+   
     const tabs = ["all", "open", "closed"]
     for (const t of tabs) {
     
@@ -129,14 +129,17 @@ const switchTab = (value) => {
     }
     if (value === "all") {
         allSection.classList.remove("hidden")
-        UpdateStat(allSection)
+        UpdateStat(allSec)
+        
     }
     else if (value === "open") {
         openSection.classList.remove("hidden")
+        UpdateStat(openSection)
 
     }
     else {
         closedSection.classList.remove("hidden")
+        UpdateStat(closedSection)
     } 
     
      
