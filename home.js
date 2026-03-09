@@ -90,7 +90,7 @@ const displayAllIssues = (issues) => {
         }
          if(issue.status==="closed"){
             const closeNode=newdiv.cloneNode(true)
-            closedSection.appendChild(closeNode)
+           Closesection.appendChild(closeNode)
 
         }
         
