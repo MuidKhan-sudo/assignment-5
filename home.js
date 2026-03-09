@@ -129,17 +129,17 @@ const switchTab = (value) => {
     }
     if (value === "all") {
         allSection.classList.remove("hidden")
-        UpdateStat(allSec)
+       
         
     }
     else if (value === "open") {
         openSection.classList.remove("hidden")
-        UpdateStat(openSection)
+        
 
     }
     else {
         closedSection.classList.remove("hidden")
-        UpdateStat(closedSection)
+        
     } 
     
      
@@ -161,6 +161,3 @@ document.getElementById("search-button").addEventListener("click", ()=>{
     })
 })
 
-const UpdateStat=(update)=>{
-    stat.innerText=update.children.length
-}
