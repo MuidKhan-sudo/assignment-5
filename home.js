@@ -1,6 +1,6 @@
 const badges = (lebels) => {
     const newBadge = lebels.map(lebel => `<span class="badge badge-warning text-xs font-semibold">${lebel}</span>`)
-    return(newBadge.join(" "))
+    return (newBadge.join(" "))
 
 }
 
@@ -14,13 +14,13 @@ const displayAllIssues = (issues) => {
     const section = document.getElementById("issues-section")
     section.innerHTML = ""
     issues.forEach(issue => {
-         let borderT = '';
-    if(issue.status === 'open'){
-        borderT = 'border-t-4 border-[#00A96E]';
-    }
-    else if(issue.status === 'closed'){
-        borderT = 'border-t-4 border-[#A855F7]';
-    }
+        let borderT = '';
+        if (issue.status === 'open') {
+            borderT = 'border-t-4 border-[#00A96E]';
+        }
+        else if (issue.status === 'closed') {
+            borderT = 'border-t-4 border-[#A855F7]';
+        }
         // {
         // "id": 1,
         // "title": "Fix navigation menu on mobile devices",
@@ -74,17 +74,31 @@ const displayAllIssues = (issues) => {
 
 loadAllIssues()
 
-let currentTab="all"
-const switchTab=(value)=>{
-    const tabs=["all","open","closed"]
-    for(const t of tabs){
-        const TabName=document.getElementById("tab-"+t)
-        if(t===value){
+let currentTab = "all"
+const allSection = document.getElementById("issues-section")
+const openSection = document.getElementById("Openissues-section")
+const closedSection = document.getElementById("Closedissues-section")
+const switchTab = (value) => {
+    const tabs = ["all", "open", "closed"]
+    for (const t of tabs) {
+        const TabName = document.getElementById("tab-" + t)
+        if (t === value) {
             TabName.classList.remove("btn-soft")
 
         }
-        else{
+        else {
             TabName.classList.add("btn-soft")
         }
     }
+    if (value === "all") {
+        allSection.classList.remove("hidden")
+    }
+    else if (value === "open") {
+        openSection.classList.remove("hidden")
+
+    }
+    else {
+        closedSection.classList.remove("hidden")
+    }
 }
+switchTab(currentTab)

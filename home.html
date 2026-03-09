@@ -57,15 +57,23 @@
                 </div>
             </div>
             <div class="">
-                <span class="circle open"></span> <span class="mr-5 ">Open</span>
-                <span class="circle closed"></span> <span>Closed</span>
+                <span class="circle open"></span> <span class="md:mr-5 ">Open</span>
+                <div class="flex items-center">
+                    <span class="circle closed"></span> <span>Closed</span>
+                </div>
             </div>
         </section>
 
         <!-- all issues section -->
-        <section id="issues-section"
-            class="bg-gray-200 w-11/11 mx-auto space-y-2  md:grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2">
+        <section id="issues-section" class="bg-gray-200 w-11/11 mx-auto space-y-2  md:grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2 hidden">
+        </section>
 
+        <section id="Openissues-section" class="hidden">
+            <h1>open section</h1>
+        </section>
+
+        <section id="Closedissues-section" class="hidden">
+            <h1>close section</h1>
         </section>
 
 
