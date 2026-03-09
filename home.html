@@ -52,7 +52,7 @@
             <div class="flex items-center gap-2 ">
                 <div class="w-10"><img src="Group 1 (1).png" alt=""></div>
                 <div>
-                    <h2 class="font-bold">50 Issues</h2>
+                    <h2 class="font-bold" id="stat">40 Issues</h2>
                     <p>Track and manage your project issues</p>
                 </div>
             </div>
@@ -65,16 +65,21 @@
         </section>
 
         <!-- all issues section -->
-        <section id="issues-section" class="bg-gray-200 w-11/11 mx-auto space-y-2  md:grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2 hidden">
-        </section>
-
-        <section id="Openissues-section" class="hidden">
-            <h1>open section</h1>
-        </section>
-
-        <section id="Closedissues-section" class="hidden">
-            <h1>close section</h1>
-        </section>
+        <div id="allIssues-section" class="hidden">
+            <section id="issues-section"
+                class="bg-gray-200  w-11/11 mx-auto space-y-2   md:grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2 ">
+            </section>
+        </div>
+        <div id="open-section" class="hidden">
+            <section id="Openissues-section" class="bg-gray-200  w-11/11 mx-auto space-y-2   md:grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2 " >
+                
+            </section>
+        </div>
+        <div id="close-section" class="hidden">
+            <section id="Closedissues-section" class="bg-gray-200  w-11/11 mx-auto space-y-2  grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2">
+                
+            </section>
+        </div>
 
 
     </main>

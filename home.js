@@ -13,6 +13,10 @@ const displayAllIssues = (issues) => {
 
     const section = document.getElementById("issues-section")
     section.innerHTML = ""
+    const Opensection = document.getElementById("Openissues-section")
+    Opensection.innerHTML = ""
+    const Closesection = document.getElementById("Closedissues-section")
+     Closesection.innerHTML = ""
     issues.forEach(issue => {
         let borderT = '';
         if (issue.status === 'open') {
@@ -66,18 +70,33 @@ const displayAllIssues = (issues) => {
                 </div>
 
             </div>`
-        section.appendChild(newdiv)
+        
+        if(issue.status==="open" || issue.status==="closed" ){
+            section.appendChild(newdiv)
+        }
+         if(issue.status==="open"){
+            const openClone=newdiv.cloneNode(true)
+            Opensection.appendChild(openClone)
+
+        }
+         if(issue.status==="closed"){
+            const closeNode=newdiv.cloneNode(true)
+            closedSection.appendChild(closeNode)
+
+        }
+        
 
     })
+
 
 }
 
 loadAllIssues()
-
+const allSec=document.getElementById("issues-section")
 let currentTab = "all"
-const allSection = document.getElementById("issues-section")
-const openSection = document.getElementById("Openissues-section")
-const closedSection = document.getElementById("Closedissues-section")
+const allSection = document.getElementById("allIssues-section")
+const openSection = document.getElementById("open-section")
+const closedSection = document.getElementById("close-section")
 const switchTab = (value) => {
     const tabs = ["all", "open", "closed"]
     for (const t of tabs) {
@@ -90,6 +109,11 @@ const switchTab = (value) => {
             TabName.classList.add("btn-soft")
         }
     }
+
+    const sections=[allSection,openSection,closedSection]
+    for( const sec of sections){
+        sec.classList.add("hidden")
+    }
     if (value === "all") {
         allSection.classList.remove("hidden")
     }
@@ -99,6 +123,6 @@ const switchTab = (value) => {
     }
     else {
         closedSection.classList.remove("hidden")
-    }
+    }  
 }
 switchTab(currentTab)
