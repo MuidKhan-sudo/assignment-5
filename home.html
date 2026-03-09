@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Github</title>
+    <!-- fav icon -->
+    <link rel="shortcut icon" href="./B13-A5-Github-Issue-Tracker/assets/github-logo.png" type="image/x-icon">
+    <!-- daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="assign5.css">
+</head>
+
+<body >
+    <nav>
+        <div class="navbar bg-base-100 shadow-sm flex justify-between items-center">
+            <div class="flex gap-1 items-center ">
+                <img src="./B13-A5-Github-Issue-Tracker/assets/github-logo.png" class="w-8" alt="">
+                <h2 class="text-2xl">GitHub Issues Tracker</h2>
+            </div>
+            <div class="flex gap-2">
+                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                <button class="btn bg-[#4A00FF] text-white">+ New Issue</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="w-10/12 mx-auto mt-14">
+        <!-- button section -->
+
+        <section class="space-x-2 p-4">
+            <button onclick="switchTab('all')" class="btn btn-soft btn-primary">All</button>
+            <button onclick="switchTab('open')" class="btn btn-soft btn-primary">Open</button>
+            <button onclick="switchTab('closed')" class="btn btn-soft btn-primary">Closed</button>
+        </section>
+        <!-- 50 issues section -->
+        <section class="mt-6 p-3 flex justify-between items-center  rounded-t-lg bg-slate-200">
+            <div class="flex items-center gap-2 ">
+                <div class="w-10"><img src="Group 1 (1).png" alt=""></div>
+                <div>
+                    <h2 class="font-bold">50 Issues</h2>
+                    <p>Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="">
+                <span class="circle open"></span> <span class="mr-5 ">Open</span>
+                <span class="circle closed"></span> <span>Closed</span>
+            </div>
+        </section>
+
+        <!-- all issues section -->
+         <section id="issues-section" class="bg-gray-200 w-11/11 mx-auto   grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2">
+            
+         </section>
+
+
+    </main>
+    <script src="home.js"></script>
+</body>
+
+</html>

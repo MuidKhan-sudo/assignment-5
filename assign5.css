@@ -1,0 +1,17 @@
+*{
+     font-family: "Geist", sans-serif;
+}
+.circle{
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.open{
+  background-color: #2ecc71;
+}
+
+.closed{
+  background-color: #8e44ad;
+}
