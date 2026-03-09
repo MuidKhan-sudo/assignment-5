@@ -25,14 +25,14 @@
     <link rel="stylesheet" href="assign5.css">
 </head>
 
-<body >
+<body>
     <nav>
-        <div class="navbar bg-base-100 shadow-sm flex justify-between items-center">
-            <div class="flex gap-1 items-center ">
+        <div class="navbar bg-base-100 shadow-sm flex-col md:flex-row justify-between items-center">
+            <div class="flex gap-1 items-center space-y-3">
                 <img src="./B13-A5-Github-Issue-Tracker/assets/github-logo.png" class="w-8" alt="">
-                <h2 class="text-2xl">GitHub Issues Tracker</h2>
+                <h2 class="text-lg md:text-2xl font-bold ">GitHub Issues Tracker</h2>
             </div>
-            <div class="flex gap-2">
+            <div class="md:flex gap-2">
                 <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
                 <button class="btn bg-[#4A00FF] text-white">+ New Issue</button>
             </div>
@@ -42,10 +42,10 @@
     <main class="w-10/12 mx-auto mt-14">
         <!-- button section -->
 
-        <section class="space-x-2 p-4">
-            <button onclick="switchTab('all')" class="btn btn-soft btn-primary">All</button>
-            <button onclick="switchTab('open')" class="btn btn-soft btn-primary">Open</button>
-            <button onclick="switchTab('closed')" class="btn btn-soft btn-primary">Closed</button>
+        <section class="space-x-2 p-4 flex">
+            <button id="tab-all" onclick="switchTab('all')" class="btn btn-soft btn-primary">All</button>
+            <button id="tab-open" onclick="switchTab('open')" class="btn btn-soft btn-primary">Open</button>
+            <button id="tab-closed" onclick="switchTab('closed')" class="btn btn-soft btn-primary">Closed</button>
         </section>
         <!-- 50 issues section -->
         <section class="mt-6 p-3 flex justify-between items-center  rounded-t-lg bg-slate-200">
@@ -63,9 +63,10 @@
         </section>
 
         <!-- all issues section -->
-         <section id="issues-section" class="bg-gray-200 w-11/11 mx-auto   grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2">
-            
-         </section>
+        <section id="issues-section"
+            class="bg-gray-200 w-11/11 mx-auto space-y-2  md:grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2">
+
+        </section>
 
 
     </main>

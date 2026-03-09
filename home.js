@@ -1,5 +1,5 @@
 const badges = (lebels) => {
-    const newBadge = lebels.map(lebel => `<span class="badge badge-warning">${lebel}</span>`)
+    const newBadge = lebels.map(lebel => `<span class="badge badge-warning text-xs font-semibold">${lebel}</span>`)
     return(newBadge.join(" "))
 
 }
@@ -48,7 +48,7 @@ const displayAllIssues = (issues) => {
                     <h2 class="font-extrabold text-sm text-left">${issue.title}</h2>
                 <p class="text-start text-xs" >${issue.description}</p>
                 </div>
-                <div class="text-xs flex gap-2 ">
+                <div class=" flex gap-3 ">
                     <div class="">${badges(issue.labels)}</div>
                     
                 </div>
@@ -75,6 +75,16 @@ const displayAllIssues = (issues) => {
 loadAllIssues()
 
 let currentTab="all"
-const switchTab=(tab)=>{
-    console.log(tab)
+const switchTab=(value)=>{
+    const tabs=["all","open","closed"]
+    for(const t of tabs){
+        const TabName=document.getElementById("tab-"+t)
+        if(t===value){
+            TabName.classList.remove("btn-soft")
+
+        }
+        else{
+            TabName.classList.add("btn-soft")
+        }
+    }
 }
