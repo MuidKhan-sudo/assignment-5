@@ -4,10 +4,32 @@ const badges = (lebels) => {
 
 }
 
+const manageSpinner=(result)=>{
+    if(result==true){
+        document.getElementById("spinner").classList.remove("hidden")
+        const allsec=document.querySelectorAll("#allIssues-section,#open-section,#close-section")
+        allsec.forEach(sec => {
+            sec.classList.add("hidden")
+        });
+    }
+    else{
+         document.getElementById("spinner").classList.add("hidden")
+        const allsec=document.querySelectorAll("#allIssues-section,#open-section,#close-section")
+        allsec.forEach(sec => {
+            sec.classList.remove("hidden")
+        });
+    }
+    }
+
+
 const loadAllIssues = () => {
+    manageSpinner(true)
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
         .then((res) => res.json())
-        .then((data) => displayAllIssues(data.data))
+        .then((data) => {
+            displayAllIssues(data.data)
+            switchTab("all")
+        })
 }
 const displayAllIssues = (issues) => {
 
@@ -25,21 +47,8 @@ const displayAllIssues = (issues) => {
         else if (issue.status === 'closed') {
             borderT = 'border-t-4 border-[#A855F7]';
         }
-        // {
-        // "id": 1,
-        // "title": "Fix navigation menu on mobile devices",
-        // "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-        // "status": "open",
-        // "labels": [
-        // "bug",
-        // "help wanted"
-        // ],
-        // "priority": "high",
-        // "author": "john_doe",
-        // "assignee": "jane_smith",
-        // "createdAt": "2024-01-15T10:30:00Z",
-        // "updatedAt": "2024-01-15T10:30:00Z"
-        // },
+
+
 
         const newdiv = document.createElement("div")
         newdiv.innerHTML = ` <div  class="card flex flex-col   text-center bg-white rounded-2xl shadow-md px-5 py-10 space-y-4 ${borderT}">
@@ -74,7 +83,7 @@ const displayAllIssues = (issues) => {
         if(issue.status==="open" || issue.status==="closed" ){
             section.appendChild(newdiv)
         }
-         if(issue.status==="open"){
+        if(issue.status==="open"){
             const openClone=newdiv.cloneNode(true)
             Opensection.appendChild(openClone)
 
@@ -88,18 +97,21 @@ const displayAllIssues = (issues) => {
 
     })
 
-
+manageSpinner(false)
 }
-
 loadAllIssues()
+
 const allSec=document.getElementById("issues-section")
 let currentTab = "all"
 const allSection = document.getElementById("allIssues-section")
 const openSection = document.getElementById("open-section")
 const closedSection = document.getElementById("close-section")
+const stat=document.getElementById("stat")
 const switchTab = (value) => {
+   currentTab="all"
     const tabs = ["all", "open", "closed"]
     for (const t of tabs) {
+    
         const TabName = document.getElementById("tab-" + t)
         if (t === value) {
             TabName.classList.remove("btn-soft")
@@ -109,6 +121,7 @@ const switchTab = (value) => {
             TabName.classList.add("btn-soft")
         }
     }
+    
 
     const sections=[allSection,openSection,closedSection]
     for( const sec of sections){
@@ -116,6 +129,7 @@ const switchTab = (value) => {
     }
     if (value === "all") {
         allSection.classList.remove("hidden")
+        UpdateStat(allSection)
     }
     else if (value === "open") {
         openSection.classList.remove("hidden")
@@ -123,6 +137,27 @@ const switchTab = (value) => {
     }
     else {
         closedSection.classList.remove("hidden")
-    }  
+    } 
+    
+     
 }
 switchTab(currentTab)
+
+document.getElementById("search-button").addEventListener("click", ()=>{
+    const value=document.getElementById("input")
+    const searchValue=value.value.trim().toLowerCase()
+    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then((res)=>res.json())
+    .then((data)=>{
+        const allWords=data.data
+        const filterWords=allWords.filter(word=>
+            word.title.includes(searchValue)
+        )
+        displayAllIssues(filterWords)
+        switchTab("all")
+    })
+})
+
+const UpdateStat=(update)=>{
+    stat.innerText=update.children.length
+}

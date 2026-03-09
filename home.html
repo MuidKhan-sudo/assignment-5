@@ -33,8 +33,8 @@
                 <h2 class="text-lg md:text-2xl font-bold ">GitHub Issues Tracker</h2>
             </div>
             <div class="md:flex gap-2">
-                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                <button class="btn bg-[#4A00FF] text-white">+ New Issue</button>
+                <input id="input" type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                <button id="search-button" class=" btn bg-[#4A00FF] text-white">Search</button>
             </div>
         </div>
     </nav>
@@ -52,7 +52,7 @@
             <div class="flex items-center gap-2 ">
                 <div class="w-10"><img src="Group 1 (1).png" alt=""></div>
                 <div>
-                    <h2 class="font-bold" id="stat">40 Issues</h2>
+                    <h2 class="font-bold" ><span id="stat">40</span> Issues</h2>
                     <p>Track and manage your project issues</p>
                 </div>
             </div>
@@ -63,21 +63,28 @@
                 </div>
             </div>
         </section>
+        <!-- spinner section -->
+        <section id="spinner" class="flex justify-center items-center py-10 hidden">
+            <span class="loading loading-spinner loading-xl"></span>
+            <span class="loading loading-spinner loading-xl"></span>
+        </section>
 
         <!-- all issues section -->
         <div id="allIssues-section" class="hidden">
             <section id="issues-section"
-                class="bg-gray-200  w-11/11 mx-auto space-y-2   md:grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2 ">
+                class="bg-gray-200  w-11/11 mx-auto space-y-2   md:grid grid-cols-4 gap-5  p-5  shadow-xl border-t-2 ">
             </section>
         </div>
         <div id="open-section" class="hidden">
-            <section id="Openissues-section" class="bg-gray-200  w-11/11 mx-auto space-y-2   md:grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2 " >
-                
+            <section id="Openissues-section"
+                class="bg-gray-200  w-11/11 mx-auto space-y-2   md:grid grid-cols-4 gap-5  p-5  shadow-xl border-t-2 ">
+
             </section>
         </div>
         <div id="close-section" class="hidden">
-            <section id="Closedissues-section" class="bg-gray-200  w-11/11 mx-auto space-y-2  grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2">
-                
+            <section id="Closedissues-section"
+                class="bg-gray-200  w-11/11 mx-auto space-y-2  grid grid-cols-3 gap-5  p-5  shadow-xl border-t-2">
+
             </section>
         </div>
 
